@@ -4,7 +4,7 @@ import { useState } from 'react'
 function App() { 
 
 // states
-const [firstNum, setFirstNum] = useState(0)
+const [firstNum, setFirstNum] = useState('0')
 const [operator, setOperator] = useState('+')
 const [secondNum, setSecondNum] = useState(0)
 const [result, setResult] = useState(0)
@@ -12,7 +12,7 @@ const [result, setResult] = useState(0)
 // num one
 
 const numOneInput = (event) =>{
-  if (firstNum === 0){
+  if (firstNum === '0'){
     setFirstNum(event.target.innerText)
   }
   else {
@@ -20,7 +20,7 @@ const numOneInput = (event) =>{
   }
 }
 const clearFirst = () => {
-  setFirstNum(0)
+  setFirstNum('0')
 }
 //num two
 
