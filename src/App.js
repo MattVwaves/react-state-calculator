@@ -8,7 +8,7 @@ const [firstNum, setFirstNum] = useState('0')
 const [operator, setOperator] = useState('+')
 const [secondNum, setSecondNum] = useState(0)
 const [result, setResult] = useState(0)
-
+const [stored, setStore] = useState(0)
 // num one
 
 const numOneInput = (event) =>{
@@ -64,6 +64,17 @@ const calculate = ()=>{
     setResult(parseInt(firstNum) / parseInt(secondNum))
   }
 }
+// store 
+const storeNum =()=>{
+  setStore(result)
+}
+// recall
+const recallOneA=()=>{
+  setFirstNum(stored)
+}
+const recallOneB=()=>{
+  setSecondNum(stored)
+}
 
   return (
     <div className="calculator">
@@ -81,6 +92,8 @@ const calculate = ()=>{
             <button onClick={numOneInput}>9</button>
             <button onClick={numOneInput}>0</button>
             <button onClick={clearFirst}>Clear</button>
+            <button class='one' onClick={recallOneA}>one</button>
+
           </div>
         </div>
         
@@ -108,14 +121,19 @@ const calculate = ()=>{
             <button onClick={numTwoInput}>9</button>
             <button onClick={numTwoInput}>0</button>
             <button onClick={clearSecond}>Clear</button>
+            <button class='one' onClick={recallOneB}>one</button>
+
           </div>
         </div>
         <div className="panel answer">
           <p>{result}</p>
           <div>
             <button onClick={calculate}>=</button>
+
           </div>
+          <button class='liked' onClick={storeNum}><p>i like this <p class='one'>one</p></p></button>
         </div>
+
     </div>
   )
 }
