@@ -42,6 +42,7 @@ html {
 .answer {
   color:greenyellow;
   font-style: italic;
+  background-color: grey;
 }
 
 .answer button {

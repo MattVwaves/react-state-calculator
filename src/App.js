@@ -50,32 +50,48 @@ const setDivide = (event)=>{
   setOperator(event.target.innerText)
 }
 // result
+
 const calculate = ()=>{
   if (operator === '+'){
-    setResult(parseInt(firstNum) + parseInt(secondNum))
+    setResult(Number(firstNum) + Number(secondNum))
   }
   if (operator === '-'){
-    setResult(parseInt(firstNum) - parseInt(secondNum))
+    setResult(Number(firstNum) - Number(secondNum))
   }
   if (operator === '*'){
-    setResult(parseInt(firstNum) * parseInt(secondNum))
+    setResult(Number(firstNum) * Number(secondNum))
   }
   if (operator === '÷'){
-    setResult(parseInt(firstNum) / parseInt(secondNum))
+    setResult(Number(firstNum) / Number(secondNum))
   }
 }
 // store 
+
 const storeNum =()=>{
   setStore(result)
 }
 // recall
+
 const recallOneA=()=>{
   setFirstNum(stored)
 }
 const recallOneB=()=>{
   setSecondNum(stored)
 }
+// process floats
 
+const decimalOne=(event)=>{
+
+    if (firstNum.includes('.') === false){
+    setFirstNum(firstNum + event.target.innerText)
+    }
+}
+const decimalTwo=(event)=>{
+
+    if (secondNum.includes('.') === false){
+    setSecondNum(secondNum + event.target.innerText)
+    }
+}
   return (
     <div className="calculator">
         <div className="panel">
@@ -92,7 +108,8 @@ const recallOneB=()=>{
             <button onClick={numOneInput}>9</button>
             <button onClick={numOneInput}>0</button>
             <button onClick={clearFirst}>Clear</button>
-            <button class='one' onClick={recallOneA}>one</button>
+            <button class='one' onClick={recallOneA}>recall</button>
+            <button onClick={decimalOne}>.</button>
 
           </div>
         </div>
@@ -121,7 +138,8 @@ const recallOneB=()=>{
             <button onClick={numTwoInput}>9</button>
             <button onClick={numTwoInput}>0</button>
             <button onClick={clearSecond}>Clear</button>
-            <button class='one' onClick={recallOneB}>one</button>
+            <button class='one' onClick={recallOneB}>recall</button>
+            <button onClick={decimalTwo}>.</button>
 
           </div>
         </div>
@@ -129,9 +147,9 @@ const recallOneB=()=>{
           <p>{result}</p>
           <div>
             <button onClick={calculate}>=</button>
+            <button class='liked' onClick={storeNum}><p>i like this <p class='one'>one</p></p></button>
 
           </div>
-          <button class='liked' onClick={storeNum}><p>i like this <p class='one'>one</p></p></button>
         </div>
 
     </div>
